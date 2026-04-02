@@ -288,7 +288,7 @@ const catalogs = {
   ],
   smiles: [
     { name:"Rockstar Freddy", price:2000, condition:"Excellent", img:"./fnaf6assets/RockStarFreddy.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
-    { name:"Rockstar Bonnie", price:2000, condition:"Excellent", img:"./fnaf6assets/RockStarBonnie.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
+    { name:"Rockstar Bonnie", price:2000, condition:"Excellent", img:"./fnaf6assets/RockstarBonnie.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
     { name:"Rockstar Chica",  price:2000, condition:"Excellent", img:"./fnaf6assets/rockstarchica.webp",  atm:0, health:0, ent:7, rev:0, risk:1 },
     { name:"Rockstar Foxy",   price:2500, condition:"Excellent", img:"./fnaf6assets/rockstarfoxy.webp",   atm:0, health:0, ent:8, rev:0, risk:1 },
     { name:"Lefty",           price:5,    condition:"Poor",      img:"./fnaf6assets/Lefty.webp",          atm:0, health:0, ent:9, rev:0, risk:9 },
