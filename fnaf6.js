@@ -273,11 +273,11 @@ setupDayPlayStarHover();
 
 const catalogs = {
   dumpster: [
-    { name:"Bucket Bob",       price:10,    condition:"Very Good", img:"./fnaf6assets/bucketbob.webp",     atm:0, health:0, ent:1, rev:0, risk:0 },
-    { name:"Mr. Can-Do",       price:10,    condition:"Very Good", img:"./fnaf6assets/mrcando.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
-    { name:"Mr. Hugs",         price:15,    condition:"Very Good", img:"./fnaf6assets/mrhugs.webp",        atm:0, health:0, ent:3, rev:0, risk:1 },
+    { name:"Bucket Bob",       price:10,    condition:"Very Good", img:"./fnaf6assets/BucketBob.webp",     atm:0, health:0, ent:1, rev:0, risk:0 },
+    { name:"Mr. Can-Do",       price:10,    condition:"Very Good", img:"./fnaf6assets/MrCando.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
+    { name:"Mr. Hugs",         price:15,    condition:"Very Good", img:"./fnaf6assets/MrHugs.webp",        atm:0, health:0, ent:3, rev:0, risk:1 },
     { name:"No. 1 Crate",      price:10,    condition:"Very Good", img:"./fnaf6assets/no1crate.webp",      atm:0, health:0, ent:2, rev:0, risk:0 },
-    { name:"Pan Stan",         price:10,    condition:"Very Good", img:"./fnaf6assets/panstan.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
+    { name:"Pan Stan",         price:10,    condition:"Very Good", img:"./fnaf6assets/PanPtan.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
   ],
   stans: [
     { name:"Happy Frog",         price:200,  condition:"Good",      img:"./fnaf6assets/happyfrog.webp",        atm:0, health:0, ent:4, rev:0, risk:0 },
@@ -287,16 +287,16 @@ const catalogs = {
     { name:"Orville Elephant",   price:4100, condition:"Excellent", img:"./fnaf6assets/orvilleelephant.webp", atm:1, health:0, ent:7, rev:1, risk:0 },
   ],
   smiles: [
-    { name:"Rockstar Freddy", price:2000, condition:"Excellent", img:"./fnaf6assets/rockstarfreddy.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
-    { name:"Rockstar Bonnie", price:2000, condition:"Excellent", img:"./fnaf6assets/rockstarbonnie.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
+    { name:"Rockstar Freddy", price:2000, condition:"Excellent", img:"./fnaf6assets/RockStarFreddy.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
+    { name:"Rockstar Bonnie", price:2000, condition:"Excellent", img:"./fnaf6assets/RockStarBonnie.webp", atm:0, health:0, ent:7, rev:0, risk:1 },
     { name:"Rockstar Chica",  price:2000, condition:"Excellent", img:"./fnaf6assets/rockstarchica.webp",  atm:0, health:0, ent:7, rev:0, risk:1 },
     { name:"Rockstar Foxy",   price:2500, condition:"Excellent", img:"./fnaf6assets/rockstarfoxy.webp",   atm:0, health:0, ent:8, rev:0, risk:1 },
     { name:"Lefty",           price:5,    condition:"Poor",      img:"./fnaf6assets/lefty.webp",          atm:0, health:0, ent:9, rev:0, risk:9 },
   ],
   rare: [
-    { name:"Music Man",     price:19000, condition:"Good",      img:"./fnaf6assets/musicman.webp",     atm:0, health:0, ent:9, rev:0, risk:1 },
-    { name:"El Chip",       price:32000, condition:"Excellent", img:"./fnaf6assets/elchip.webp",       atm:7, health:0, ent:7, rev:0, risk:0 },
-    { name:"Funtime Chica", price:71000, condition:"Pristine",  img:"./fnaf6assets/funtimechica.webp", atm:9, health:0, ent:9, rev:9, risk:0 },
+    { name:"Music Man",     price:19000, condition:"Good",      img:"./fnaf6assets/MusicMan.webp",     atm:0, health:0, ent:9, rev:0, risk:1 },
+    { name:"El Chip",       price:32000, condition:"Excellent", img:"./fnaf6assets/ElChip.webp",       atm:7, health:0, ent:7, rev:0, risk:0 },
+    { name:"Funtime Chica", price:71000, condition:"Pristine",  img:"./fnaf6assets/funtimeChica.webp", atm:9, health:0, ent:9, rev:9, risk:0 },
   ],
 };
 
