@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freddy Fazbear's Pizzeria Simulator</title>
+  <link rel="stylesheet" href="fnaf6.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2:wght@400;600;700&family=VT323&family=Special+Elite&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body class="day-mode" id="body">
+
+  <div class="page-scanlines"></div>
+
+  <button class="mode-toggle" id="modeToggle">
+    <span class="mode-icon" id="modeIcon">🌙</span>
+    <span class="mode-label" id="modeLabel">NIGHT MODE</span>
+  </button>
+
+  <div id="dayContent">
+    <header class="day-banner">
+      <div class="day-banner-bg"></div>
+      <div class="day-banner-grid"></div>
+      <div class="day-banner-overlay"></div>
+      <canvas class="star-canvas" id="dayBannerStars"></canvas>
+      
+      <div class="day-banner-content">
+        <div class="day-eyebrow">FREDDY FAZBEAR'S</div>
+        <div class="day-logo-wrap">
+          <img src="./fnaf6assets/fnaf6header.webp" alt="Freddy Fazbear's Pizzeria Simulator" class="day-logo-img"
+            onerror="this.style.display='none';document.getElementById('day-title-fallback').style.display='block'" />
+          <div class="day-title-fallback" id="day-title-fallback">PIZZERIA SIMULATOR</div>
+        </div>
+        <div class="day-tagline">START YOUR OWN FREDDY FAZBEAR'S PIZZERIA!</div>
+      </div>
+      <div class="day-banner-fade"></div>
+    </header>
+
+    <section class="day-welcome-section">
+      <div class="day-welcome-bar">
+        <div class="day-title-text day-title-anim">WELCOME TO FREDDY FAZBEAR'S PIZZA PLACE</div>
+      </div>
+      <div class="day-welcome-content">
+        <div class="day-welcome-text">
+          <h3 class="day-section-h3">ABOUT THE GAME</h3>
+          <p>
+            Freddy Fazbear's Pizza Place is under new management — yours. As the freshly hired franchise owner, your job is simple: stock the restaurant, purchase equipment from four different catalogs, and build the most successful Freddy Fazbear location this side of town.
+            <br><br>
+            Each catalog offers something different. Dumpster Diver Weekly for budget finds. Stan's Budget Tech for practical equipment. Smiles and Servos for entertainment upgrades. And Rare Finds Auction for the premium stuff — if you can afford it.
+            <br><br>
+            Keep your Atmosphere, Health and Safety, and Entertainment scores high. Keep the customers happy. Keep the revenue up. Open on Monday. Close on Friday. Do not ask questions about what happens after Friday.
+          </p>
+        </div>
+        
+        <div class="day-welcome-video">
+          <video autoplay muted loop playsinline>
+            <source src="../videos/fnaf6footage.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="screen">
+        <div class="top-bar">
+          <div class="day-title-text day-title-anim">ANIMATRONICS</div>
+        </div>
+
+        <div class="left-menu">
+          <div class="menu-tile tile-dumpster active" onclick="selectCatalog('dumpster',this)">
+            <span class="tile-label font-dumpster">Dumpster Diver Weekly</span>
+          </div>
+          <div class="menu-tile tile-stans" onclick="selectCatalog('stans',this)">
+            <span class="tile-label font-stans">Stan's Budget Tech</span>
+          </div>
+          <div class="menu-tile tile-smiles" onclick="selectCatalog('smiles',this)">
+            <span class="tile-label font-smiles">Smiles and Servos, Inc.</span>
+          </div>
+          <div class="menu-tile tile-rare" onclick="selectCatalog('rare',this)">
+            <span class="tile-label font-rare">Rare Finds Auction</span>
+          </div>
+        </div>
+
+        <section class="item-panel" id="itemPanel">
+          <canvas class="star-canvas star-canvas-panel" id="panelStars"></canvas>
+          <div class="item-header" id="itemName">Sanitation Station</div>
+          <div class="item-price-top">
+            <span class="price-dollar">$</span><span class="big" id="priceVal">100</span>
+          </div>
+          
+          <div class="item-img-wrap">
+            <img class="item-image" id="itemImage" src="./fnaf6assets/640.png" alt="Item"
+              ondragstart="return false" oncontextmenu="return false" />
+          </div>
+          
+          <button class="nav-arrow nav-left" id="prevBtn">
+            <img src="./fnaf6assets/leftarrow.png" alt="Prev" ondragstart="return false" oncontextmenu="return false" />
+          </button>
+          <button class="nav-arrow nav-right" id="nextBtn">
+            <img src="./fnaf6assets/rightarrow.png" alt="Next" ondragstart="return false" oncontextmenu="return false" />
+          </button>
+          <div class="item-condition" id="itemCondition">Item condition: Very Good</div>
+        </section>
+
+        <aside class="stats-panel" id="statsPanel">
+          <div class="stat-row">
+            <div>Atmosphere:</div>
+            <div class="value" id="stat-atmosphere">0</div>
+            <div class="bar-wrap"><div class="bonus-bar" id="bar-atmosphere"></div></div>
+          </div>
+          <div class="stat-row">
+            <div>Health &amp; Safety:</div>
+            <div class="value" id="stat-health">3</div>
+            <div class="bar-wrap"><div class="bonus-bar" id="bar-health" style="width:60%"></div></div>
+          </div>
+          <div class="stat-row">
+            <div>Entertainment:</div>
+            <div class="value" id="stat-entertainment">0</div>
+            <div class="bar-wrap"><div class="bonus-bar" id="bar-entertainment"></div></div>
+          </div>
+          <div class="stat-row">
+            <div>Bonus Revenue:</div>
+            <div class="value" id="stat-revenue">0</div>
+            <div class="bar-wrap"><div class="bonus-bar" id="bar-revenue"></div></div>
+          </div>
+          <div class="stat-row stat-row-risk">
+            <div>Liability Risk:</div>
+            <div class="value risk-value" id="stat-risk">0</div>
+            <div class="bar-wrap"><div class="bonus-bar risk-bar" id="bar-risk"></div></div>
+          </div>
+        </aside>
+
+        <div class="buy-wrap">
+          <div class="cost-row">
+            <img src="./fnaf6assets/cost.png" alt="" class="cost-bg" />
+            <span class="cost-val" id="costVal">100</span>
+          </div>
+          <button class="buy-button" id="buyBtn">
+            <img src="./fnaf6assets/buyitem.png" alt="BUY ITEM" />
+          </button>
+        </div>
+
+        <div class="helpy-group">
+          <img src="./fnaf6assets/helpy.gif" alt="Helpy" class="helpy-image" />
+          <img src="./fnaf6assets/helpyshadow.png" alt="" class="helpy-shadow" />
+        </div>
+
+        <div class="footer-fade"></div>
+      </div>
+    </section>
+
+    <div class="day-play-bar" id="dayPlayBar">
+      <canvas class="star-canvas star-canvas-play" id="dayPlayStars"></canvas>
+      <a href="https://www.roblox.com/games/12495498157/FNAF-Co-op" target="_blank" class="day-title-text day-title-anim day-play-link">&#9658; PLAY</a>
+    </div>
+
+  </div>
+
+  <div id="nightContent" style="display:none">
+
+    <div class="night-particles" id="nightParticles"></div>
+    <div class="night-fire-base" id="nightFireBase"></div>
+
+    <header class="night-header">
+      <div class="night-header-bg"></div>
+      <div class="night-header-vignette"></div>
+      <div class="night-static"></div>
+      <canvas class="star-canvas star-canvas-night-header" id="nightHeaderStars"></canvas>
+      <div class="night-header-content">
+        <p class="night-eyebrow">FREDDY FAZBEAR'S</p>
+        <h1 class="night-title">PIZZERIA SIMULATOR</h1>
+        <p class="night-subtitle">START YOUR OWN FREDDY FAZBEAR'S PIZZERIA!</p>
+      </div>
+    </header>
+
+    <section class="night-content">
+      <div class="intro-box">
+        <h2>WELCOME TO FREDDY FAZBEAR'S PIZZA PLACE</h2>
+      </div>
+      <div class="night-grid">
+        <div class="night-description">
+          <h3>ABOUT THE GAME</h3>
+          <p>
+            The workday ends at midnight. After the last employee leaves, you remain at the terminal. There are two vents. There is a fan you can turn off to reduce noise, and a PC you can shut down for the same reason. The temperature rises when you do both.
+            <br><br>
+            Something was found in the back alley. Management decided it was worth recovering. You did not make that call but you are the one sitting alone with it now. Five audio cues. A taser with three charges. A clipboard for documentation that nobody will ever read.
+            <br><br>
+            Complete the session. File the form. Do not let it leave the room.
+          </p>
+        </div>
+        <div class="night-video-preview">
+          <video autoplay muted loop playsinline>
+            <source src="../videos/fnaf6footage.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="night-chars-section">
+      <div class="night-section-title">
+        <span class="night-line"></span>
+        <h2>ANIMATRONICS</h2>
+        <span class="night-line"></span>
+      </div>
+
+      <div class="salvage-terminal">
+        <div class="terminal-header">
+          <span class="terminal-label">// SALVAGE LOG</span>
+          <span class="terminal-id" id="nightTerminalId">SUBJECT 01 / 04</span>
+          <span class="terminal-status">STATUS: RETRIEVED</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-img-panel">
+            <img class="terminal-char-img" id="nightCharImg" src="./fnaf6assets/moltenfreddy.webp" alt="Animatronic" />
+            <div class="terminal-condition" id="nightCharCondition">CONDITION: CRITICAL</div>
+          </div>
+          <div class="terminal-info-panel">
+            <div class="terminal-name-label">DESIGNATION</div>
+            <h3 class="terminal-char-name" id="nightCharName">MOLTEN FREDDY</h3>
+            <div class="terminal-divider"></div>
+            <p class="terminal-char-desc" id="nightCharDesc">A twisted knot of wires and shattered endoskeleton frames with far too many eyes. Multiple personalities speak through it at once. Whatever you recovered from the back alley on the first night, it was not alone inside.</p>
+            <a id="nightCharLink" href="https://freddy-fazbears-pizza.fandom.com/wiki/Molten_Freddy" target="_blank" class="terminal-wiki-link">[ WIKI ENTRY ]</a>
+          </div>
+        </div>
+        
+        <div class="terminal-nav">
+          <button class="terminal-nav-btn" id="nightPrev">[ PREV ]</button>
+          <span class="terminal-counter" id="nightCounter">01 / 04</span>
+          <button class="terminal-nav-btn" id="nightNext">[ NEXT ]</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="roles-section">
+      <div class="night-section-title">
+        <span class="night-line"></span>
+        <h2>ROLES</h2>
+        <span class="night-line"></span>
+      </div>
+
+      <div class="role-block">
+        <div class="role-text">
+          <div class="role-header">
+            <img src="../images/nightguard.webp" class="role-icon" alt="Night Guard" />
+            <h3>NIGHT GUARD</h3>
+          </div>
+          <div class="role-desc">
+            <p>Stationed at the back office after closing. Watch the two vents and manage noise by killing the fan and the PC when things get loud. The temperature climbs when you do both. Complete each night, file the form, and do not let anything reach the door.</p>
+          </div>
+        </div>
+        <div class="role-video">
+          <video autoplay muted loop playsinline>
+            <source src="../videos/fnaf6Nightguard.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="role-block reverse">
+        <div class="role-text">
+          <div class="role-header">
+            <img src="../images/janitor.webp" class="role-icon" alt="Janitor" />
+            <h3>JANITOR</h3>
+          </div>
+          <div class="role-desc">
+            <p>Walk the halls of the Pizzeria during open hours. Keep the place presentable, clean up after the customers, and stay on your route. The building is bigger than it looks from the outside. Do not stray too far from where you are supposed to be.</p>
+          </div>
+        </div>
+        <div class="role-video">
+          <video autoplay muted loop playsinline>
+            <source src="../videos/fnaf6Janitor.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="role-block">
+        <div class="role-text">
+          <div class="role-header">
+            <img src="../images/engineer.webp" class="role-icon" alt="Engineer" />
+            <h3>ENGINEER</h3>
+          </div>
+          <div class="role-desc">
+            <p>You run the salvage procedure. When something gets dragged in from the back alley, you are the one in the room with it. Five audio cues. A clipboard nobody will read. Whatever came through that door responds to sound, and right now you are the only one making any.</p>
+          </div>
+        </div>
+        <div class="role-video">
+          <video autoplay muted loop playsinline>
+            <source src="../videos/fnaf6Engineer.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="role-block reverse">
+        <div class="role-text">
+          <div class="role-header">
+            <img src="../images/policeman.webp" class="role-icon" alt="Policeman" />
+            <h3>POLICEMAN</h3>
+          </div>
+          <div class="role-desc">
+            <p>You sit at the terminal in the office and work the systems. Cameras, audio routing, motion alerts — all of it runs through your screen. When something moves that should not be moving, you are the first to know. Click fast. You do not get many chances.</p>
+          </div>
+        </div>
+        <div class="role-video">
+          <video autoplay muted loop playsinline>
+            <source src="../videos/fnaf6Policeman.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="play-section">
+      <div class="night-section-title play-title" id="nightPlayTitle">
+        <span class="night-line"></span>
+        <a href="https://www.roblox.com/games/12495498157/FNAF-Co-op" target="_blank" class="play-btn" id="playBtn">&#9658; PLAY</a>
+        <span class="night-line"></span>
+      </div>
+      <canvas class="star-canvas star-canvas-night-play" id="nightPlayStars"></canvas>
+    </section>
+
+  </div>
+
+  <script src="fnaf6.js"></script>
+</body>
+</html>
