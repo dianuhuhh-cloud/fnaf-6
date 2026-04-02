@@ -277,7 +277,7 @@ const catalogs = {
     { name:"Mr. Can-Do",       price:10,    condition:"Very Good", img:"./fnaf6assets/MrCando.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
     { name:"Mr. Hugs",         price:15,    condition:"Very Good", img:"./fnaf6assets/MrHugs.webp",        atm:0, health:0, ent:3, rev:0, risk:1 },
     { name:"No. 1 Crate",      price:10,    condition:"Very Good", img:"./fnaf6assets/no1crate.webp",      atm:0, health:0, ent:2, rev:0, risk:0 },
-    { name:"Pan Stan",         price:10,    condition:"Very Good", img:"./fnaf6assets/PanPtan.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
+    { name:"Pan Stan",         price:10,    condition:"Very Good", img:"./fnaf6assets/PanStan.webp",       atm:0, health:0, ent:1, rev:0, risk:0 },
   ],
   stans: [
     { name:"Happy Frog",         price:200,  condition:"Good",      img:"./fnaf6assets/happyfrog.webp",        atm:0, health:0, ent:4, rev:0, risk:0 },
@@ -296,7 +296,7 @@ const catalogs = {
   rare: [
     { name:"Music Man",     price:19000, condition:"Good",      img:"./fnaf6assets/MusicMan.webp",     atm:0, health:0, ent:9, rev:0, risk:1 },
     { name:"El Chip",       price:32000, condition:"Excellent", img:"./fnaf6assets/ElChip.webp",       atm:7, health:0, ent:7, rev:0, risk:0 },
-    { name:"Funtime Chica", price:71000, condition:"Pristine",  img:"./fnaf6assets/funtimeChica.webp", atm:9, health:0, ent:9, rev:9, risk:0 },
+    { name:"Funtime Chica", price:71000, condition:"Pristine",  img:"./fnaf6assets/FuntimeChica.webp", atm:9, health:0, ent:9, rev:9, risk:0 },
   ],
 };
 
